@@ -12,7 +12,6 @@ if pwd and $HOME are the same
 
 ```
 find $(pwd) -iname "*zoom*"
-
 ```
 if not you can try 
 
@@ -30,7 +29,6 @@ yum install /home/gabocuadros/Descargas/zoom_x86_64.rpm
 ```
 git pull origin <master>
 git push origin <master>
-
 ```
 considering you always work with master branches
 
