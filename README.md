@@ -1,5 +1,5 @@
 
-#WEBLOGIC BASICS
+# WEBLOGIC BASICS
 
 open nautilus with current directory set
 ```
@@ -17,8 +17,9 @@ if not you can try
 
 ```
 find $HOME -iname "*zoom*"
-#result /home/gabocuadros/Descargas/zoom_x86_64.rpm
+--> /home/gabocuadros/Descargas/zoom_x86_64.rpm
 ```
+then just do
 
 yum install /home/gabocuadros/Descargas/zoom_x86_64.rpm
 
