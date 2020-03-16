@@ -1,0 +1,7 @@
+cd /home/myUser/some/long/path/to/a/directory
+and then:
+nautilus .
+open nautilus with current directory set
+
+find $(pwd) -iname "*zoom*"
+
