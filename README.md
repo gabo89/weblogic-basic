@@ -32,6 +32,12 @@ yum install /home/gabocuadros/Descargas/zoom_x86_64.rpm
 git pull origin <master>
 git push origin <master>
 ```
+
+configure your profile for git 
+```
+git config --global user.email "gabrielcuadros@gmail.com"
+git config --global user.name  "gabocuadros"
+```
 considering you always work with master branches
 
 
@@ -121,7 +127,7 @@ echo "MW_HOME=/opt/project/weblogic/weblogic_app" >> /home/oracle/.bash_profile
 echo "export MW_HOME" >> /home/oracle/.bash_profile
 echo "WLS_HOME=$MW_HOME/wlserver_12.1" >> /home/oracle/.bash_profile
 echo "export WLS_HOME" >> /home/oracle/.bash_profile
-echo "JAVA_HOME=/usr/java/jdk1.8.0_241-amd64; export JAVA_HOME" >> /home/oracle/.bash_profile
+echo "JAVA_HOME=/usr/java/jdk1.8.0_241-amd64; >> /home/oracle/.bash_profile
 echo "export JAVA_HOME" >> /home/oracle/.bash_profile
 echo "PATH=/usr/java/jdk1.8.0_241-amd64/bin:$PATH;" >> /home/oracle/.bash_profile
 echo "export PATH" >> /home/oracle/.bash_profile
