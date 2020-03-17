@@ -1,1 +1,3 @@
 *.jar
+tmp/
+weblogic_app/

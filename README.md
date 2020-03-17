@@ -94,7 +94,9 @@ usermod -a -G oinstall gabocuadros
 passwd oracle
 
 chown -R oracle:oinstall /opt/project/weblogic/weblogic_app
+chown -R oracle:oinstall /opt/project/weblogic/tmp
 chmod -R 775 /opt/project/weblogic/weblogic_app
+chmod -R 777 /opt/project/weblogic/tmp
 ```
 
 view my hostname y domainname
@@ -136,11 +138,22 @@ source /home/oracle/.bash_profile
 ```
 
 
-install as oracle user (very important)
+install as oracle user (very important), use a temporal file to make install since my /tmp folder is noexec
 
 ```
-java  -jar /opt/project/weblogic/fmw_12.2.1.4.0_wls.jar
+java -Djava.io.tmpdir=/opt/project/weblogic/tmp -jar /opt/project/weblogic/fmw_12.2.1.4.0_wls.jar
 ```
+
+```
+[oracle@limsq_mesos_sidea ~]$ cat /etc/fstab | grep -v "#"
+dev/mapper/centos-root /                       xfs     defaults        0 0
+UUID=b7cf6f19-d626-427d-b020-29030682a0e4 /boot                   xfs     defaults        0 0
+/dev/mapper/centos-home /home                   xfs     defaults        0 0
+/dev/mapper/centos-swap swap                    swap    defaults        0 0
+/dev/mapper/centos-tmp /tmp xfs loop,nosuid,noexec,nodev,rw 0 0
+
+```
+
 in case error for color install
 ```
 sudo yum install xorg-x11-util* xorg-x11-xauth*
@@ -173,4 +186,10 @@ xhost:  unable to open display ":0"
 if not add oracle to xhost as root user
 ```
 xhost +SI:localuser:oracle
+```
+
+
+to clean tpm files
+```
+find /tmp -ctime 1 -exec rm -rf {} +
 ```
