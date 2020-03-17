@@ -22,7 +22,7 @@ find $HOME -iname "*zoom*"
 ```
 then just do
 
-yum install /home/gabocuadros/Descargas/zoom_x86_64.rpm
+sudo yum install /home/gabocuadros/Descargas/zoom_x86_64.rpm
 
 -------------------------------
 
@@ -133,4 +133,44 @@ echo "PATH=/usr/java/jdk1.8.0_241-amd64/bin:$PATH;" >> /home/oracle/.bash_profil
 echo "export PATH" >> /home/oracle/.bash_profile
 echo "USER_MEM_ARGS=\"-Xms32m -Xmx200m -XX:MaxPermSize=350m\"" >> /home/oracle/.bash_profile
 source /home/oracle/.bash_profile
+```
+
+
+install as oracle user (very important)
+
+```
+java  -jar /opt/project/weblogic/fmw_12.2.1.4.0_wls.jar
+```
+in case error for color install
+```
+sudo yum install xorg-x11-util* xorg-x11-xauth*
+```
+
+configure sshd to forward gui control to users, check if this are present if not add them
+
+```
+cat /etc/ssh/sshd_config | grep -v "#"
+```
+
+```
+X11Forwarding yes
+X11UseLocalhost no
+```
+
+then restart sshd service
+```
+systemctl restart sshd
+```
+
+
+check if oracle user is allowed to use display
+```
+[oracle@limsq_mesos_sidea weblogic]$ xhost
+No protocol specified
+xhost:  unable to open display ":0"
+```
+
+if not add oracle to xhost as root user
+```
+xhost +SI:localuser:oracle
 ```
